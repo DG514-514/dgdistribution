@@ -2,7 +2,7 @@
 
 // Contact details shown on the site and used by the inquiry form. Edit here.
 const CONTACT = {
-  email: '', // e.g. 'sales@dgdistribution.ca' — to be confirmed
+  email: 'sales@dgdistribution.ca',
   phone: '', // e.g. '+1 (514) 555-0123'
   location: '', // e.g. 'Montréal, Québec, Canada'
 };
