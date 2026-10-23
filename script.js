@@ -6,7 +6,7 @@ const CONTACT = {
   phone: '', // e.g. '+1 (514) 555-0123'
   whatsapp: '', // digits with country code, e.g. '15145550123' — adds a WhatsApp link
   location: '', // e.g. 'Montréal, Québec, Canada'
-  linkedin: '', // e.g. 'https://www.linkedin.com/company/dg-distribution'
+  linkedin: 'https://www.linkedin.com/company/dgdistribution/',
 };
 
 // Inquiries are delivered by FormSubmit (free, no account). The first submission sends a one-time
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (CONTACT.phone) add('Phone', el('a', { href: `tel:${CONTACT.phone.replace(/[^\d+]/g, '')}`, textContent: CONTACT.phone }));
   if (CONTACT.whatsapp) { add('WhatsApp', el('a', { href: `https://wa.me/${CONTACT.whatsapp}`, textContent: 'Message us on WhatsApp', target: '_blank', rel: 'noopener' })); links.push(['WhatsApp', `https://wa.me/${CONTACT.whatsapp}`]); }
   if (CONTACT.location) add('Location', el('span', { textContent: CONTACT.location }));
-  if (CONTACT.linkedin) links.push(['LinkedIn', CONTACT.linkedin]);
+  if (CONTACT.linkedin) { add('LinkedIn', el('a', { href: CONTACT.linkedin, textContent: 'Follow DG Distribution', target: '_blank', rel: 'noopener' })); links.push(['LinkedIn', CONTACT.linkedin]); }
   links.forEach(([text, href]) => footer.append(el('a', { href, textContent: text, target: href.startsWith('http') ? '_blank' : '', rel: 'noopener' })));
 
   // Buyer / seller switch: changes a few labels and which fields show
