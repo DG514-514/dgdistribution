@@ -96,6 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({ ...fields, _subject: subject, _replyto: d.email, _template: 'table', _captcha: 'false' }),
       });
       const out = await res.json().catch(() => ({}));
+      // First use only: FormSubmit asks the site owner to confirm the address before delivering.
+      if (/activat/i.test(out.message || '')) {
+        show(`Almost there — this form is being activated. Please check ${CONTACT.email} (and Junk/Spam) for the FormSubmit "Activate" email, then send again.`, 'err');
+        return;
+      }
       if (!res.ok || String(out.success) === 'false') throw new Error(out.message || 'Send failed');
       form.reset();
       setRole('buyer');
