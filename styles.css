@@ -191,8 +191,8 @@ h2 em { display: block; }
 .brand-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .brand-group { border: 1px solid var(--line); background: #fff; padding: 36px 40px; }
 .brand-group h3 { font-size: 1.6rem; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
-.brand-group ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 24px; }
-.brand-group li { font-family: var(--serif); font-size: 1.35rem; letter-spacing: .06em; color: var(--ink); }
+.brand-group ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 24px; }
+.brand-group li { font-family: var(--serif); font-size: 1.35rem; letter-spacing: .06em; color: var(--ink); margin-bottom: 12px; break-inside: avoid; }
 .brand-note { margin: 22px 0 0; font-size: .85rem; color: var(--muted); max-width: 70em; }
 
 /* Why DG */
