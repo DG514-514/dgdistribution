@@ -246,3 +246,38 @@ h2 em { display: block; }
 }
 
 .about-copy .eyebrow { color: var(--gold); font-size: .76rem; line-height: 1.6; margin-bottom: 20px; }
+
+/* Shop direct (consumers) */
+.hero-shop { margin: 26px 0 0; }
+.shop { display: grid; grid-template-columns: 1fr 1.25fr; gap: 70px; align-items: start; }
+.shop-lead { color: var(--muted); font-size: 1.08rem; line-height: 1.8; margin: -20px 0 36px; }
+.shop-note { color: var(--muted); font-size: .9rem; margin: 26px 0 0; }
+.shop-form { background: #fff; border: 1px solid var(--line); padding: 40px; display: grid; gap: 30px; }
+.shop-form fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 14px; min-width: 0; }
+.shop-form legend { padding: 0; margin-bottom: 14px; font-family: var(--serif); font-size: 1.5rem; }
+.shop-form legend span { color: var(--gold); font-size: 1.1rem; margin-right: 8px; }
+.shop-form label:not(.chip) { display: grid; gap: 8px; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.shop-form label[hidden] { display: none; }
+.shop-form input:not([type="radio"]), .shop-form select { font: 400 1rem var(--sans); letter-spacing: 0; text-transform: none; color: var(--ink); background: var(--cream); border: 1px solid var(--line); padding: 13px 14px; border-radius: 0; width: 100%; }
+.shop-form input:focus, .shop-form select:focus { outline: none; border-color: var(--gold); }
+.shop-form select:disabled { opacity: .55; }
+.shop-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.shop-form .btn { justify-self: start; }
+.shop-form .form-msg.ok { color: #2f7a3a; }
+.shop-form .form-msg.err { color: #b4532a; }
+.fine a { color: inherit; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.chip span { display: block; padding: 9px 16px; border: 1px solid var(--line); background: var(--cream); font-family: var(--serif); font-size: 1.12rem; letter-spacing: .04em; transition: border-color .2s, background .2s, color .2s; }
+.chip:hover span { border-color: var(--gold); }
+.chip input:checked + span { background: var(--black); border-color: var(--black); color: #fff; }
+.chip input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (max-width: 900px) {
+  .shop { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 560px) {
+  .shop-form { padding: 26px 18px; }
+  .shop-form .row { grid-template-columns: 1fr; }
+  .chip span { font-size: 1rem; padding: 8px 13px; }
+}

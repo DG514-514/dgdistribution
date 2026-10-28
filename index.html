@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>DG Distribution | B2B Closeout &amp; Wholesale for Luxury and Athletic Brands</title>
-  <meta name="description" content="DG Distribution buys and sells authentic branded closeout and wholesale inventory — luxury, premium and athletic apparel, footwear and accessories. Trade only. 16+ years, 30+ countries.">
+  <meta name="description" content="DG Distribution buys and sells authentic branded closeout and wholesale inventory — luxury, premium and athletic apparel, footwear and accessories. Wholesale for the trade, plus direct orders for individual shoppers. 16+ years, 30+ countries.">
   <meta property="og:title" content="DG Distribution — The World's Best Brands, Unbeatable Prices.">
   <meta property="og:description" content="B2B closeout, wholesale distribution and brand liquidation for luxury and athletic brands.">
   <meta property="og:image" content="https://dgdistribution.ca/img/logo-full.jpg">
@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=3">
-  <script src="script.js?v=2" defer></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <script src="script.js?v=4" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -28,6 +28,7 @@
         <a href="#buyers">Buy</a>
         <a href="#sellers">Sell</a>
         <a href="#brands">Brands</a>
+        <a href="#shop">Shop</a>
         <a href="#about">About</a>
         <a href="#terms">Trade Terms</a>
         <a class="btn btn-dark nav-cta" href="#contact" data-role="buyer">Request Offers</a>
@@ -40,13 +41,14 @@
     <section class="hero">
       <div class="wrap hero-in">
         <div class="hero-copy">
-          <p class="eyebrow">B2B Closeout &amp; Wholesale · Trade Only</p>
+          <p class="eyebrow">B2B Closeout &amp; Wholesale · Shop Direct</p>
           <h1>The World's Best Brands, <em>Unbeatable Prices.</em></h1>
           <p class="lead">Authentic luxury, premium and athletic apparel, footwear and accessories — bought and sold in volume for retailers, distributors and brands in over 30 countries.</p>
           <div class="hero-cta">
             <a class="btn btn-gold" href="#contact" data-role="buyer">Buy Inventory</a>
             <a class="btn btn-ghost" href="#contact" data-role="seller">Sell Excess Stock</a>
           </div>
+          <p class="hero-shop"><a class="link-arrow" href="#shop">Shopping for yourself? Shop direct →</a></p>
         </div>
         <div class="hero-art">
           <div class="emblem"><img src="img/dg-emblem.jpg" alt="DG Distribution" width="1024" height="425"></div>
@@ -54,7 +56,7 @@
             <div><dt>16<span>+</span></dt><dd>Years in Closeout</dd></div>
             <div><dt>30<span>+</span></dt><dd>Countries Served</dd></div>
             <div><dt>50<span>+</span></dt><dd>Premium Brands</dd></div>
-            <div><dt class="dt-text">B2B</dt><dd>Trade Only</dd></div>
+            <div><dt class="dt-text">B2B</dt><dd>Wholesale &amp; Direct</dd></div>
           </dl>
         </div>
       </div>
@@ -148,6 +150,63 @@
       </div>
     </section>
 
+    <!-- Shop direct (consumers) -->
+    <section class="section section-alt" id="shop">
+      <div class="wrap shop">
+        <div class="shop-copy">
+          <p class="eyebrow">Shop Direct</p>
+          <h2>Authentic Brands, <em>Direct to You</em></h2>
+          <p class="shop-lead">Looking for a specific pair or piece for yourself? Tell us the brand, the product and your size, and we'll email you the price and availability, usually within one business day.</p>
+          <ol class="steps">
+            <li><strong>Choose your brand</strong><span>Footwear and apparel from the brands we carry.</span></li>
+            <li><strong>Pick the product &amp; your size</strong><span>Add a model or colour if you have one in mind.</span></li>
+            <li><strong>Get price &amp; availability by email</strong><span>No payment and no commitment until you confirm.</span></li>
+          </ol>
+          <p class="shop-note">Stock changes quickly, so every request gets a personal reply from our team.</p>
+        </div>
+        <form class="shop-form" id="shop-form" novalidate>
+          <fieldset>
+            <legend><span>01</span> Brand</legend>
+            <div class="chips" id="shop-brands"></div>
+            <label hidden data-other>Which brand?<input name="brand_other" placeholder="e.g. Salomon"></label>
+          </fieldset>
+          <fieldset>
+            <legend><span>02</span> Product</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="type" value="Footwear"><span>Footwear</span></label>
+              <label class="chip"><input type="radio" name="type" value="Apparel"><span>Apparel</span></label>
+            </div>
+            <label>Type<select name="category" disabled><option value="">Choose footwear or apparel first</option></select></label>
+          </fieldset>
+          <fieldset>
+            <legend><span>03</span> Size</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="fit" value="Men's"><span>Men's</span></label>
+              <label class="chip"><input type="radio" name="fit" value="Women's"><span>Women's</span></label>
+              <label class="chip"><input type="radio" name="fit" value="Kids"><span>Kids</span></label>
+            </div>
+            <label>Size<select name="size" disabled><option value="">Choose a product and fit first</option></select></label>
+          </fieldset>
+          <fieldset>
+            <legend><span>04</span> Your Details</legend>
+            <label>Model, colour or style (optional)<input name="details" placeholder="e.g. Air Jordan 1 Low, black/white"></label>
+            <div class="row">
+              <label>Name<input name="name" required autocomplete="name"></label>
+              <label>Email<input name="email" type="email" required autocomplete="email"></label>
+            </div>
+            <div class="row">
+              <label>Phone (optional)<input name="phone" type="tel" autocomplete="tel"></label>
+              <label>City &amp; country<input name="location" placeholder="e.g. Montréal, Canada"></label>
+            </div>
+          </fieldset>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="form-msg" role="status" aria-live="polite" hidden></p>
+          <button class="btn btn-dark" type="submit">Check Price &amp; Availability</button>
+          <p class="fine">Authentic product only. Your details are kept confidential and never shared.</p>
+        </form>
+      </div>
+    </section>
+
     <!-- Why DG -->
     <section class="section section-dark" id="why">
       <div class="wrap">
@@ -208,7 +267,7 @@
         <div class="faq">
           <details open>
             <summary>Who can buy from DG Distribution?</summary>
-            <p>We sell to businesses only: retailers, off-price chains, online sellers, wholesalers and exporters. We don't sell to consumers.</p>
+            <p>Wholesale lots are for businesses only: retailers, off-price chains, online sellers, wholesalers and exporters. Individual shoppers can request specific footwear and apparel through <a href="#shop">Shop Direct</a>.</p>
           </details>
           <details>
             <summary>Is there a minimum order?</summary>
@@ -279,7 +338,7 @@
           <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="form-msg" role="status" aria-live="polite" hidden></p>
           <button class="btn btn-gold" type="submit">Send Inquiry</button>
-          <p class="fine">Trade inquiries only. Your details are kept confidential.</p>
+          <p class="fine">For trade inquiries. Shopping for yourself? Use <a href="#shop">Shop Direct</a>. Your details are kept confidential.</p>
         </form>
       </div>
     </section>
