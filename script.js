@@ -25,7 +25,9 @@ const SHOP = {
   categories: {
     Footwear: ['Sneakers', 'Running shoes', 'Boots', 'Sandals & slides', 'Dress & casual shoes'],
     Apparel: ['T-shirts & tops', 'Hoodies & sweatshirts', 'Pants & jeans', 'Shorts', 'Jackets & outerwear', 'Swimwear'],
+    Bags: ['Handbags', 'Shoulder & crossbody bags', 'Tote bags', 'Backpacks', 'Belt bags', 'Clutches', 'Duffel & travel bags'],
   },
+  // Product types left out here (bags) skip the size step.
   sizes: {
     Footwear: {
       "Men's": [...range(6, 13, 0.5, (n) => `US ${n}`), 'US 14', 'US 15'],
@@ -166,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const brandBox = document.getElementById('shop-brands');
   [...SHOP.brands, 'Other'].forEach((b) => brandBox.append(chip('brand', b)));
   const other = shop.querySelector('[data-other]');
+  const sizeStep = shop.querySelector('[data-size-step]');
   const fill = (select, options, empty) => {
     select.replaceChildren(el('option', { value: '', textContent: options ? 'Choose…' : empty }));
     (options || []).forEach((o) => select.append(el('option', { value: o, textContent: o })));
@@ -175,13 +178,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const type = shop.querySelector('input[name="type"]:checked')?.value;
     const fit = shop.querySelector('input[name="fit"]:checked')?.value;
     other.hidden = shop.querySelector('input[name="brand"]:checked')?.value !== 'Other';
+    sizeStep.hidden = Boolean(type) && !SHOP.sizes[type];
     if (shop.category.dataset.type !== (type || '')) {
-      fill(shop.category, type && SHOP.categories[type], 'Choose footwear or apparel first');
+      fill(shop.category, type && SHOP.categories[type], 'Choose footwear, apparel or bags first');
       shop.category.dataset.type = type || '';
     }
     const key = `${type}|${fit}`;
     if (shop.size.dataset.key !== key) {
-      const sizes = type && fit && SHOP.sizes[type][fit];
+      const sizes = fit && SHOP.sizes[type]?.[fit];
       fill(shop.size, sizes && [...sizes, 'Not sure — I’ll add it in the notes'], 'Choose a product and fit first');
       shop.size.dataset.key = key;
     }
@@ -194,19 +198,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const brand = d.brand === 'Other' ? (d.brand_other || '').trim() : d.brand;
     if (!need(d.brand, 'Please choose a brand.', brandBox.querySelector('input'))) return;
     if (!need(brand, 'Please tell us which brand.', shop.brand_other)) return;
-    if (!need(d.type, 'Please choose footwear or apparel.', shop.querySelector('input[name="type"]'))) return;
+    if (!need(d.type, 'Please choose footwear, apparel or bags.', shop.querySelector('input[name="type"]'))) return;
     if (!need(d.category, 'Please choose the type of product.', shop.category)) return;
-    if (!need(d.fit, 'Please choose men’s, women’s or kids.', shop.querySelector('input[name="fit"]'))) return;
-    if (!need(d.size, 'Please choose your size.', shop.size)) return;
+    const sized = Boolean(SHOP.sizes[d.type]);
+    if (sized && !need(d.fit, 'Please choose men’s, women’s or kids.', shop.querySelector('input[name="fit"]'))) return;
+    if (sized && !need(d.size, 'Please choose your size.', shop.size)) return;
     if (!need(d.name.trim(), 'Please enter your name.', shop.elements.name)) return;
     if (!need(validEmail(d.email), 'Please enter a valid email address.', shop.email)) return;
     return {
       fields: {
         'Inquiry type': 'SHOP DIRECT — consumer wants price & availability',
-        Brand: brand, Product: `${d.type} — ${d.category}`, Fit: d.fit, Size: d.size, 'Model / colour / style': d.details,
+        Brand: brand, Product: `${d.type} — ${d.category}`, ...(sized ? { Fit: d.fit, Size: d.size } : {}), 'Model / colour / style': d.details,
         Name: d.name, Email: d.email, Phone: d.phone, 'City & country': d.location,
       },
-      subject: `Shop request — ${brand} ${d.category}, ${d.fit} ${d.size} — ${d.name}`,
+      subject: `Shop request — ${brand} ${d.category}${sized ? `, ${d.fit} ${d.size}` : ''} — ${d.name}`,
       thanks: 'Thank you — your request has been sent. We’ll email you the price and availability shortly.',
     };
   }, refresh);
