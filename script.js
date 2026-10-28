@@ -17,8 +17,11 @@ const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT.email}`;
 const range = (from, to, step, fmt = String) => Array.from({ length: Math.round((to - from) / step) + 1 }, (_, i) => fmt(from + i * step));
 const ADULT = ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'];
 const SHOP = {
-  brands: ['Adidas', 'Agua Bendita', 'Asics', 'Burberry', 'Calvin Klein', 'Canada Goose', 'Carhartt', 'Champion', 'Cole Haan', 'Converse', 'Diesel', 'Dior',
-    'Fendi', 'Golden Goose', 'Gucci', 'Hanes', 'Havaianas', 'Hoka', 'Lacoste', "Levi's", 'Moncler', 'Moschino', 'New Balance', 'Nike', 'Off-White', 'On', 'Puma', 'Reebok', 'True Religion', 'UGG'],
+  brands: [
+    'Adidas', 'Agua Bendita', 'Asics', 'Burberry', 'Calvin Klein', 'Canada Goose', 'Carhartt', 'Champion', 'Cole Haan', 'Converse',
+    'Diesel', 'Dior', 'Emporio Armani', 'Fendi', 'Ferragamo', 'Golden Goose', 'Gucci', 'Hanes', 'Havaianas', 'Hoka', 'Jacquemus',
+    'Lacoste', "Levi's", 'Michael Kors', 'Moncler', 'Moschino', 'New Balance', 'Nike', 'Off-White', 'On', 'Parajumpers', 'Puma', 'Reebok',
+    'Salomon', 'Timberland', 'True Religion', 'UGG', 'Versace'],
   categories: {
     Footwear: ['Sneakers', 'Running shoes', 'Boots', 'Sandals & slides', 'Dress & casual shoes'],
     Apparel: ['T-shirts & tops', 'Hoodies & sweatshirts', 'Pants & jeans', 'Shorts', 'Jackets & outerwear', 'Swimwear'],
