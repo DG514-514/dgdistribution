@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=5">
-  <script src="script.js?v=4" defer></script>
+  <link rel="stylesheet" href="styles.css?v=6">
+  <script src="script.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -156,9 +156,9 @@
         <div class="shop-copy">
           <p class="eyebrow">Shop Direct</p>
           <h2>Authentic Brands, <em>Direct to You</em></h2>
-          <p class="shop-lead">Looking for a specific pair or piece for yourself? Tell us the brand, the product and your size, and we'll email you the price and availability, usually within one business day.</p>
+          <p class="shop-lead">Looking for a specific pair, piece or bag for yourself? Tell us the brand, the product and your size, and we'll email you the price and availability, usually within one business day.</p>
           <ol class="steps">
-            <li><strong>Choose your brand</strong><span>Footwear and apparel from the brands we carry.</span></li>
+            <li><strong>Choose your brand</strong><span>Footwear, apparel and bags from the brands we carry.</span></li>
             <li><strong>Pick the product &amp; your size</strong><span>Add a model or colour if you have one in mind.</span></li>
             <li><strong>Get price &amp; availability by email</strong><span>No payment and no commitment until you confirm.</span></li>
           </ol>
@@ -166,20 +166,21 @@
         </div>
         <form class="shop-form" id="shop-form" novalidate>
           <fieldset>
-            <legend><span>01</span> Brand</legend>
+            <legend>Brand</legend>
             <div class="chips" id="shop-brands"></div>
             <label hidden data-other>Which brand?<input name="brand_other" placeholder="e.g. Prada"></label>
           </fieldset>
           <fieldset>
-            <legend><span>02</span> Product</legend>
+            <legend>Product</legend>
             <div class="chips">
               <label class="chip"><input type="radio" name="type" value="Footwear"><span>Footwear</span></label>
               <label class="chip"><input type="radio" name="type" value="Apparel"><span>Apparel</span></label>
+              <label class="chip"><input type="radio" name="type" value="Bags"><span>Bags</span></label>
             </div>
-            <label>Type<select name="category" disabled><option value="">Choose footwear or apparel first</option></select></label>
+            <label>Type<select name="category" disabled><option value="">Choose footwear, apparel or bags first</option></select></label>
           </fieldset>
-          <fieldset>
-            <legend><span>03</span> Size</legend>
+          <fieldset data-size-step>
+            <legend>Size</legend>
             <div class="chips">
               <label class="chip"><input type="radio" name="fit" value="Men's"><span>Men's</span></label>
               <label class="chip"><input type="radio" name="fit" value="Women's"><span>Women's</span></label>
@@ -188,7 +189,7 @@
             <label>Size<select name="size" disabled><option value="">Choose a product and fit first</option></select></label>
           </fieldset>
           <fieldset>
-            <legend><span>04</span> Your Details</legend>
+            <legend>Your Details</legend>
             <label>Model, colour or style (optional)<input name="details" placeholder="e.g. Air Jordan 1 Low, black/white"></label>
             <div class="row">
               <label>Name<input name="name" required autocomplete="name"></label>
@@ -267,7 +268,7 @@
         <div class="faq">
           <details open>
             <summary>Who can buy from DG Distribution?</summary>
-            <p>Wholesale lots are for businesses only: retailers, off-price chains, online sellers, wholesalers and exporters. Individual shoppers can request specific footwear and apparel through <a href="#shop">Shop Direct</a>.</p>
+            <p>Wholesale lots are for businesses only: retailers, off-price chains, online sellers, wholesalers and exporters. Individual shoppers can request specific footwear, apparel and bags through <a href="#shop">Shop Direct</a>.</p>
           </details>
           <details>
             <summary>Is there a minimum order?</summary>
